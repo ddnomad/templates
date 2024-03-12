@@ -1,0 +1,17 @@
+[config]
+skip_core_tasks = true
+
+[tasks.clean]
+script = """
+#!/usr/bin/env bash -euo pipefail
+
+rm -r ./.venv || :
+find . -type d -name '__pycache__' -exec rm -r {} \\;
+"""
+
+[tasks.create-env]
+script = """
+#!/usr/bin/env bash -euo pipefail
+
+poetry install
+"""

@@ -1,0 +1,7 @@
+{
+  "default": true,
+  "MD003": { "style": "setext_with_atx" },
+  "MD007": { "indent": 4 },
+  "MD013": { "line_length": 666 },
+  "MD024": false
+}
