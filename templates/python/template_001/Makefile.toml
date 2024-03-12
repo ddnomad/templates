@@ -1,6 +1,7 @@
 [config]
 skip_core_tasks = true
 
+
 [tasks.clean]
 script = """
 #!/usr/bin/env bash -euo pipefail
@@ -9,9 +10,19 @@ rm -r ./.venv || :
 find . -type d -name '__pycache__' -exec rm -r {} \\;
 """
 
+
 [tasks.create-env]
+command = "poetry"
+args = ["install"]
+
+
+[tasks.sync-package-meta]
 script = """
 #!/usr/bin/env bash -euo pipefail
 
-poetry install
+readonly META_FILE_PATH="$(find . -type f -name 'meta.py' | grep -v '.venv' | head -n 1)"
+
+./scripts/sync_package_meta.sh \
+  ./pyproject.toml \
+  "${META_FILE_PATH}"
 """

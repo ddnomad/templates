@@ -5,8 +5,9 @@ requires = ["poetry-core"]
 
 [tool.poetry]
 name = "template-001"
-version = "0.1.0"
 description = "Python project template 001"
+license = "Unlicense"
+version = "0.1.0"
 authors = ["ddnomad <self@ddnomad.net>"]
 readme = "README.md"
 
