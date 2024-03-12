@@ -1,5 +1,4 @@
 """."""
-
 import datetime
 import enum
 import ipaddress
@@ -9,7 +8,7 @@ import uuid
 import beartype.typing
 
 
-class BetterJSONEncoder(json.JSONEncoder):
+class JSONEncoder(json.JSONEncoder):
     """A better version of a JSON encoder.
 
     This class is an extension of a builtin :class:`json.JSONEncoder` that supports additional data types.
@@ -73,3 +72,11 @@ class BetterJSONEncoder(json.JSONEncoder):
             return str(o)
 
         return json.JSONEncoder.default(self, o)
+
+
+class ISO8601JSONEncoder(JSONEncoder):
+    """."""
+
+    def __init__(self, *args: tuple[beartype.typing.Any], **kwargs: dict[str, beartype.typing.Any]):
+        """."""
+        super().__init__(*args, **kwargs, datetime_as_iso8601=True)
