@@ -69,7 +69,16 @@ select = [
   "TID",   # flake8-tidy-imports
   "W",     # pycodestyle warnings
 ]
-ignore = ["PLW2901", "TD003"]
+ignore = [
+  # https://docs.astral.sh/ruff/rules/redefined-loop-name/
+  "PLW2901",
+
+  # https://docs.astral.sh/ruff/rules/missing-todo-link/
+  "TD003",
+
+  # https://docs.astral.sh/ruff/rules/relative-imports
+  "TID252",
+]
 
 
 [tool.ruff.lint.flake8-quotes]

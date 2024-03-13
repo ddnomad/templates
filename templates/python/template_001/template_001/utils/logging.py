@@ -30,6 +30,7 @@ def configure_logging(  # noqa: PLR0913
     log_file_level: beartype.typing.Optional[LogLevel] = None,
     logger_name: str = f'{__package__}.{__name__}',
     timestamp_format: str = '%Y-%m-%dT%H:%M:%SZ',
+    force_pretty_renderer: bool = False,
 ) -> structlog.stdlib.BoundLogger:
     """Configure unified Python's logging and structlog logging.
 
@@ -42,7 +43,6 @@ def configure_logging(  # noqa: PLR0913
         structlog.stdlib.add_log_level,
         structlog.processors.TimeStamper(fmt=timestamp_format, utc=True),
         structlog.processors.StackInfoRenderer(),
-        structlog.processors.format_exc_info,
         structlog.processors.UnicodeDecoder(),
         structlog.processors.CallsiteParameterAdder(
             {
@@ -59,10 +59,14 @@ def configure_logging(  # noqa: PLR0913
         processors=[*shared_processors, structlog.stdlib.ProcessorFormatter.wrap_for_formatter],
     )
 
-    if sys.stderr.isatty():
+    if sys.stderr.isatty() or force_pretty_renderer is True:
         formatter_processors = [structlog.dev.ConsoleRenderer()]
     else:
-        formatter_processors = [structlog.processors.dict_tracebacks, structlog.processors.JSONRenderer()]  # pyright: ignore[reportUnknownVariableType]
+        formatter_processors = [
+            structlog.processors.format_exc_info,
+            structlog.processors.dict_tracebacks,
+            structlog.processors.JSONRenderer(),
+        ]
 
     formatter = structlog.stdlib.ProcessorFormatter(
         foreign_pre_chain=shared_processors,
