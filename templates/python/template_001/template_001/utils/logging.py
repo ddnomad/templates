@@ -1,4 +1,5 @@
 """."""
+
 import enum
 import logging
 import pathlib
@@ -25,12 +26,13 @@ class LogLevel(enum.Enum):
 @beartype.typing.no_type_check
 def configure_logging(  # noqa: PLR0913
     level: LogLevel,
+    force_pretty_renderer: bool = False,
     print_test_log_messages: bool = False,
+    log_callsite_parameters: bool = False,
     log_file: beartype.typing.Optional[pathlib.Path] = None,
     log_file_level: beartype.typing.Optional[LogLevel] = None,
     logger_name: str = f'{__package__}.{__name__}',
     timestamp_format: str = '%Y-%m-%dT%H:%M:%SZ',
-    force_pretty_renderer: bool = False,
 ) -> structlog.stdlib.BoundLogger:
     """Configure unified Python's logging and structlog logging.
 
@@ -44,14 +46,18 @@ def configure_logging(  # noqa: PLR0913
         structlog.processors.TimeStamper(fmt=timestamp_format, utc=True),
         structlog.processors.StackInfoRenderer(),
         structlog.processors.UnicodeDecoder(),
-        structlog.processors.CallsiteParameterAdder(
-            {
-                structlog.processors.CallsiteParameter.FILENAME,
-                structlog.processors.CallsiteParameter.FUNC_NAME,
-                structlog.processors.CallsiteParameter.LINENO,
-            },
-        ),
     ]
+
+    if log_callsite_parameters:
+        shared_processors.append(
+            structlog.processors.CallsiteParameterAdder(
+                {
+                    structlog.processors.CallsiteParameter.FILENAME,
+                    structlog.processors.CallsiteParameter.FUNC_NAME,
+                    structlog.processors.CallsiteParameter.LINENO,
+                },
+            ),
+        )
 
     structlog.configure(
         cache_logger_on_first_use=True,
