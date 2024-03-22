@@ -2,4 +2,4 @@
 Rust Project Template 001
 =========================
 
-General purpose Python project template
+General purpose Rust project template
