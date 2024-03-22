@@ -1,0 +1,14 @@
+{
+  "folders": [
+    {
+      "path": "./templates/python/python_template_001/"
+    },
+    {
+      "path": "./templates/rust/rust_template_001/"
+    }
+    {
+      "path": "./templates/shared/"
+    }
+  ],
+  "settings": {}
+}

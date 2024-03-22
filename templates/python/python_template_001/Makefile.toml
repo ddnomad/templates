@@ -1,5 +1,11 @@
 [config]
 skip_core_tasks = true
+unstable_features = ["CTRL_C_HANDLING"]
+
+
+[tasks.calc-project-loc]
+command = "./scripts/calc_project_loc.sh"
+args = ["./template_001", "py"]
 
 
 [tasks.clean]
