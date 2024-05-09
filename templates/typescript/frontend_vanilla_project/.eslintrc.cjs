@@ -31,6 +31,7 @@ module.exports = {
         ],
 
         "@typescript-eslint/consistent-type-definitions": ["warn", "type"],
+        "@typescript-eslint/no-empty-function": "warn",
 
         "@typescript-eslint/no-unused-vars": [
             "warn",
@@ -57,3 +58,4 @@ module.exports = {
         "semi": ["warn", "always"]
     },
 }
+
