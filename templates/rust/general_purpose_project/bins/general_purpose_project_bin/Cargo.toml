@@ -1,0 +1,15 @@
+[package]
+name = "general_purpose_project_bin"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+# Local
+general_purpose_project_lib = { path = "../../libs/general_purpose_project_lib" }
+utils = { path = "../../libs/utils" }
+
+anyhow = "*"
+clap = { version = "*", features = ["cargo", "derive"] }
+clap_derive = "*"
+jemallocator = "*"
+tracing = "*"

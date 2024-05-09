@@ -8,5 +8,6 @@ Templates
 
 | Name | Language | Description | Directory |
 | ---- | -------- | ----------- | --------- |
-| Python Project Template 001 | Python | General purpose Python project template | [Directory](./templates/python/python_template_001/) |
-| Rust Project Template 001 | Rust | General purpose Rust project template | [Directory](./templates/rust/rust_template_001/) |
+| General Purpose Python Project | Python | General purpose Python project template | [Directory](./templates/python/general_purpose_project/) |
+| General Purpose Rust Project | Rust | General purpose Rust project template | [Directory](./templates/rust/general_purpose_project/) |
+| TypeScript Front-end Project (Vanilla) | TypeScript | Vanilla front-end TypeScript project template with SCSS support | [Directory](./templates/typescript/frontend_vanilla_project/) |

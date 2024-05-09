@@ -1,0 +1,1 @@
+../../../shared/scripts/calc_project_loc.sh

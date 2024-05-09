@@ -1,0 +1,6 @@
+[package]
+name = "general_purpose_project_lib"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]

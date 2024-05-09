@@ -1,0 +1,86 @@
+[build-system]
+build-backend = "poetry.core.masonry.api"
+requires = ["poetry-core"]
+
+
+[tool.poetry]
+name = "general_purpose_project"
+description = "General Purpose Python Project"
+license = "Unlicense"
+version = "0.1.0"
+authors = ["ddnomad <self@ddnomad.net>"]
+readme = "README.md"
+
+
+[tool.poetry.dependencies]
+python = ">=3.10,<4.0"
+
+aiohttp = "*"
+attrs = "*"
+beartype = "*"
+cattrs = "*"
+click = "*"
+click-help-colors = "*"
+python-dotenv = "*"
+structlog = "*"
+
+
+[tool.poetry.group.dev.dependencies]
+ruff = "*"
+
+
+[tool.ruff]
+line-length = 120
+
+
+[tool.ruff.format]
+indent-style = "space"
+quote-style = "single"
+
+
+[tool.ruff.lint]
+select = [
+  "A",     # flake8-builtins
+  "ARG",   # flake8-unused-arguments
+  "ASYNC", # flake8-async
+  "B",     # flake8-bugbear
+  "C4",    # flake8-comprehensions
+  "C90",   # mccabe
+  "COM",   # flake8-commans
+  "D",     # pydocstyle
+  "DTZ",   # flake8-datetimez
+  "E",     # pycodestyle
+  "F",     # pyflakes
+  "FURB",  # refurb
+  "FIX",   # flake8-fixme
+  "I",     # isort
+  "INT",   # flake8-gettext
+  "N",     # pep8-naming
+  "PERF",  # Perflint
+  "PL",    # pylint
+  "PT",    # flake8-pytest-style
+  "PTH",   # flake8-use-pathlib
+  "Q",     # flake8-quotes
+  "RET",   # flake8-return
+  "RSE",   # flake8-raise
+  "RUF",   # Ruff-specific rules
+  "S",     # flake8-bandit
+  "SIM",   # flake8-simplify
+  "TD",    # flake8-todos
+  "TID",   # flake8-tidy-imports
+  "W",     # pycodestyle warnings
+]
+ignore = [
+  # https://docs.astral.sh/ruff/rules/redefined-loop-name/
+  "PLW2901",
+
+  # https://docs.astral.sh/ruff/rules/missing-todo-link/
+  "TD003",
+
+  # https://docs.astral.sh/ruff/rules/relative-imports
+  "TID252",
+]
+
+
+[tool.ruff.lint.flake8-quotes]
+inline-quotes = "single"

@@ -1,0 +1,51 @@
+[config]
+default_to_workspace = false
+skip_core_tasks = true
+unstable_features = ["CTRL_C_HANDLING"]
+
+
+[tasks.build]
+script = """
+#!/usr/bin/env bash -euo pipefail
+
+./node_modules/.bin/tsc
+./node_modules/.bin/vite build
+"""
+
+
+# TODO(ddnomad): Fix this script to support multiple file extensions
+# [tasks.calc-project-loc]
+# command = "./scripts/calc_project_loc.sh"
+# args = [".", "ts"]
+
+
+[tasks.clean]
+command = "rm"
+args = ["-r", "./build", "./dist", "./node_modules"]
+
+
+[tasks.dev]
+command = "./node_modules/.bin/vite"
+args = ["--host", "127.0.0.1", "--port", "8080"]
+
+
+[tasks.install]
+command = "npm"
+args = ["install"]
+
+
+[tasks.lint]
+command = "./node_modules/.bin/eslint"
+args = [
+  ".",
+  "--ext",
+  "ts",
+  "--report-unused-disable-directives",
+  "--max-warnings",
+  "0",
+]
+
+
+[tasks.preview]
+command = "./node_modules/.bin/vite"
+args = ["preview"]

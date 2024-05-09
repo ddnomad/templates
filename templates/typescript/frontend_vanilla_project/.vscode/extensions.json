@@ -1,0 +1,25 @@
+{
+  "recommendations": [
+    "alpha4.jsonl",
+    "bradlc.vscode-tailwindcss",
+    "christian-kohler.npm-intellisense",
+    "christian-kohler.path-intellisense",
+    "davidanson.vscode-markdownlint",
+    "dbaeumer.vscode-eslint",
+    "editorconfig.editorconfig",
+    "gruntfuggly.todo-tree",
+    "hbenl.vscode-test-explorer",
+    "mads-hartmann.bash-ide-vscode",
+    "mechatroner.rainbow-csv",
+    "ms-vscode.test-adapter-converter",
+    "redhat.vscode-xml",
+    "redhat.vscode-yaml",
+    "simonsiefke.svg-preview",
+    "styled-components.vscode-styled-components",
+    "tamasfe.even-better-toml",
+    "timonwong.shellcheck",
+    "tomoki1207.pdf",
+    "usernamehw.errorlens",
+    "yzhang.markdown-all-in-one"
+  ]
+}

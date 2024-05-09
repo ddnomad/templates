@@ -1,11 +1,14 @@
 {
   "folders": [
     {
-      "path": "./templates/python/python_template_001/"
+      "path": "./templates/python/general_purpose_project/"
     },
     {
-      "path": "./templates/rust/rust_template_001/"
-    }
+      "path": "./templates/rust/general_purpose_project/"
+    },
+    {
+      "path": "./templates/typescript/frontend_vanilla_project/"
+    },
     {
       "path": "./templates/shared/"
     }

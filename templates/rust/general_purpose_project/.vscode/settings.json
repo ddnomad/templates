@@ -1,0 +1,11 @@
+{
+  "[rust]": {
+    "editor.defaultFormatter": "rust-lang.rust-analyzer",
+    "editor.formatOnSave": false
+  },
+  "rust-analyzer.check.extraArgs": [
+    "--",
+    "-Wclippy::all",
+  ],
+  "rust-analyzer.checkOnSave.command": "clippy"
+}

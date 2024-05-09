@@ -11,6 +11,6 @@ indent_style = space
 indent_size = 2
 
 
-[*.{py,rs,sh}]
+[*.{cjs,css,html,js,py,rs,scss,sh,ts,tsx}]
 indent_style = space
 indent_size = 4

@@ -1,0 +1,44 @@
+[config]
+default_to_workspace = false
+skip_core_tasks = true
+unstable_features = ["CTRL_C_HANDLING"]
+
+
+[tasks.build]
+env = { RUSTFLAGS = "-Awarnings -Ctarget-cpu=native" }
+command = "cargo"
+args = ["build", "--quiet", "--release", "--bins", "--tests", "--benches"]
+
+
+[tasks.calc-project-loc]
+command = "./scripts/calc_project_loc.sh"
+args = [".", "rs"]
+
+
+[tasks.clean]
+command = "cargo"
+args = ["clean"]
+
+
+[tasks.run]
+script = """
+#!/usr/bin/env bash -euo pipefail
+
+cargo run --bin general_purpose_project_bin hello-world greet
+"""
+
+
+[tasks.test]
+command = "cargo"
+args = ["test"]
+
+
+[tasks.show-crate-versions]
+script = """
+#!/usr/bin/env bash -euo pipefail
+
+for path in $(find ./bins ./libs -mindepth 1 -maxdepth 1 | sort -u); do
+  version="$(cat "${path}"/Cargo.toml | grep '^version *=' | cut -f2 -d'=' | xargs)"
+  printf "%s%-38s%s\n" '---> ' "${path}" "${version}"
+done
+"""
