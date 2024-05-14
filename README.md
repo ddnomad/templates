@@ -1,5 +1,7 @@
 Project Templates
 =================
+![GitHub last commit](https://img.shields.io/github/last-commit/ddnomad/templates)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/w/ddnomad/templates)
 
 dd's project templates monorepo
 
